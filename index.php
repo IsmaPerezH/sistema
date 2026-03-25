@@ -34,10 +34,6 @@ if (isset($_SESSION['user_id'])) {
                 <div class="logo-box"><i class="fa-solid fa-building-columns"></i></div>
                 <h1>OctaBank</h1>
             </div>
-            <div class="hero-buttons">
-                <a href="<?= BASE_URL ?>/auth/login.php" class="btn btn-outline btn-sm">Iniciar Sesión</a>
-                <a href="<?= BASE_URL ?>/auth/register.php" class="btn btn-primary btn-sm">Registrarse</a>
-            </div>
         </nav>
         
         <!-- Hero -->

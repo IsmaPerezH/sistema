@@ -1,20 +1,18 @@
-# Entorno y Configuración Local
-/config/config.php
-# Puedes clonar de config.example.php
+# Configuracion local (contiene credenciales)
+/config/config.example.php
 
-# Sistema Operativo y Editores
+# Sistema Operativo
 .DS_Store
 Thumbs.db
-.vscode/
-.idea/
 *.swp
 
-# Logs y Errores
+# Editores / IDEs
+.vscode/
+.idea/
+
+# Logs
 error_log
 php_errors.log
 
-# Sesiones de PHP (Si se guardan localmente por algún motivo)
-/sesiones/
-
-
-
+# Dependencias
+/vendor/

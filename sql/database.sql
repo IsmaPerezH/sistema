@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
     telefono VARCHAR(20) DEFAULT NULL,
     rol ENUM('admin', 'miembro') NOT NULL DEFAULT 'miembro',
     numero_cuenta VARCHAR(20) NOT NULL UNIQUE,
-    avatar VARCHAR(10) DEFAULT '👤',
+    avatar VARCHAR(10) DEFAULT NULL,
     activo TINYINT(1) NOT NULL DEFAULT 1,
     fecha_registro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     ultimo_acceso DATETIME DEFAULT NULL,
@@ -62,9 +62,7 @@ CREATE TABLE IF NOT EXISTS transacciones (
     INDEX idx_referencia (referencia)
 ) ENGINE=InnoDB;
 
-/* Tablas de cuotas eliminadas para simplificación del proyecto final */
-
--- Tabla de auditoría
+-- Tabla de auditoria
 CREATE TABLE IF NOT EXISTS auditoria (
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT DEFAULT NULL,
@@ -82,7 +80,7 @@ CREATE TABLE IF NOT EXISTS auditoria (
 -- Insertar usuario administrador por defecto
 -- Password: Admin123!
 -- =============================================
-INSERT INTO usuarios (nombre, apellido, email, password, telefono, rol, numero_cuenta, avatar) 
+INSERT INTO usuarios (nombre, apellido, email, password, telefono, rol, numero_cuenta) 
 VALUES (
     'Administrador', 
     'OctaBank', 
@@ -90,15 +88,8 @@ VALUES (
     '$2y$10$nM75vuVt8MUoP/k1cyguYu5sJNbDCPBhVv1sXSrhjb/Eyn5ARX4JG', 
     '0000000000', 
     'admin', 
-    'OB-00000001',
-    '🏦'
+    'OB-00000001'
 );
 
 INSERT INTO cuentas (usuario_id, numero_cuenta, saldo, estado) 
 VALUES (1, 'OB-00000001', 0.00, 'activa');
-
-
-
-
-
-

@@ -99,7 +99,7 @@ if (isAdmin()) {
             
             <div class="sidebar-footer">
                 <div class="sidebar-user">
-                    <div class="user-avatar"><?= $user['avatar'] ?? '<i class="fa-solid fa-user"></i>' ?></div>
+                    <div class="user-avatar"><i class="fa-solid fa-user"></i></div>
                     <div class="user-info">
                         <div class="name"><?= sanitize($user['nombre'] ?? '') ?> <?= sanitize($user['apellido'] ?? '') ?></div>
                         <div class="account"><?= sanitize($user['numero_cuenta'] ?? '') ?></div>
