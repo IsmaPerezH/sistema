@@ -4,7 +4,7 @@
  * Conexión segura con PDO
  */
 
-require_once dirname(__DIR__) . '/config/database.php';
+require_once dirname(__DIR__) . '/config/config.php';
 
 class Database {
     private static $instance = null;
