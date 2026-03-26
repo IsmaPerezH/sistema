@@ -1285,11 +1285,100 @@ select.form-control {
         padding: 16px;
     }
 
-    .top-header {
-        height: 60px;
+    /* Stats Grid: Saldo y Ingreso (50/50), Egreso Centrado Abajo */
+    .stats-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-bottom: 24px;
     }
 
-    .stat-card {
+    .stats-grid .stat-card {
+        padding: 14px;
+    }
+
+    .stats-grid .stat-card:nth-child(3) {
+        grid-column: 1 / span 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .stats-grid .stat-card:nth-child(3) .stat-icon {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .stat-card .stat-value {
+        font-size: 16px;
+    }
+
+    .stat-card .stat-label {
+        font-size: 10px;
+    }
+
+    /* Quick Actions: Depositar y Transferir (50/50), Retirar Centrado Abajo */
+    .quick-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .quick-actions .quick-action-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 14px 10px;
+        justify-content: center;
+    }
+
+    .quick-actions .quick-action-card .action-icon {
+        margin-bottom: 10px;
+        margin-right: 0;
+        width: 34px;
+        height: 34px;
+        font-size: 14px;
+    }
+
+    .quick-actions .quick-action-card:nth-child(3) {
+        grid-column: 1 / span 2;
         padding: 16px;
+    }
+
+    .quick-action-card .action-text h4 {
+        font-size: 11px;
+        margin-bottom: 0;
+    }
+
+    .quick-action-card .action-text p {
+        display: none; /* Simplificar para móviles */
+    }
+
+    /* Tablas con scroll horizontal suave (Único elemento con scroll) */
+    .table-container {
+        overflow-x: auto;
+        width: 100%;
+        -webkit-overflow-scrolling: touch;
+        border-radius: var(--radius-md);
+    }
+
+    table {
+        min-width: 450px;
+    }
+
+    /* Forzar diseño estático */
+    .app-layout {
+        overflow-x: hidden;
+    }
+
+    .main-content {
+        overflow-x: hidden;
+    }
+
+    .top-header {
+        height: 60px;
+        position: sticky;
+        top: 0;
     }
 }

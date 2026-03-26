@@ -17,9 +17,13 @@ function initMobileMenu() {
     const overlay = document.getElementById('sidebarOverlay');
     
     if (toggle && sidebar) {
-        toggle.addEventListener('click', () => {
-            sidebar.classList.toggle('open');
-            if (overlay) overlay.classList.toggle('active');
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isOpen = sidebar.classList.toggle('open');
+            if (overlay) {
+                if (isOpen) overlay.classList.add('active');
+                else overlay.classList.remove('active');
+            }
         });
         
         if (overlay) {
@@ -88,10 +92,10 @@ function showToast(message, type = 'info') {
     toast.style.cssText = 'position:fixed;top:20px;right:20px;z-index:9999;min-width:300px;max-width:400px;';
     
     const icons = {
-        success: '<i class='fa-solid fa-check'></i>',
-        error: '<i class='fa-solid fa-xmark'></i>',
-        warning: '<i class='fa-solid fa-triangle-exclamation'></i>',
-        info: '<i class='fa-solid fa-circle-info'></i>'
+        success: '<i class="fa-solid fa-check"></i>',
+        error: '<i class="fa-solid fa-xmark"></i>',
+        warning: '<i class="fa-solid fa-triangle-exclamation"></i>',
+        info: '<i class="fa-solid fa-circle-info"></i>'
     };
     
     toast.innerHTML = `<span>${icons[type] || ''}</span> ${message}`;

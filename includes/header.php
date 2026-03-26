@@ -117,7 +117,7 @@ if (isAdmin()) {
             <!-- Top Header -->
             <header class="top-header">
                 <div style="display:flex;align-items:center;gap:16px;">
-                    <button class="mobile-toggle" id="mobileToggle">☰</button>
+                    <button class="mobile-toggle" id="mobileToggle"><i class="fa-solid fa-bars"></i></button>
                     <div class="page-title">
                         <h1><?= sanitize($pageTitle ?? 'Dashboard') ?></h1>
                         <p><?= sanitize($pageSubtitle ?? '') ?></p>
