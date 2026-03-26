@@ -1,5 +1,6 @@
 # Configuracion local (contiene credenciales)
 /config/config.example.php
+/config/config.php
 
 # Sistema Operativo
 .DS_Store
@@ -16,3 +17,6 @@ php_errors.log
 
 # Dependencias
 /vendor/
+
+
+

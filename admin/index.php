@@ -21,12 +21,15 @@ $db = Database::getInstance()->getConnection();
 
 // Traer últimas 5 transacciones pendientes
 $stmt = $db->query("
-    SELECT t.*, u.nombre, u.apellido, c.numero_cuenta
+    SELECT t.*, u.nombre, u.apellido, u.numero_cuenta
     FROM transacciones t
-    JOIN cuentas c ON t.cuenta_origen_id = c.id OR t.cuenta_destino_id = c.id
-    JOIN usuarios u ON c.usuario_id = u.id
+    JOIN usuarios u ON u.id = (
+        CASE 
+            WHEN t.tipo = 'deposito' THEN (SELECT usuario_id FROM cuentas WHERE id = t.cuenta_destino_id)
+            ELSE (SELECT usuario_id FROM cuentas WHERE id = t.cuenta_origen_id)
+        END
+    )
     WHERE t.estado = 'pendiente'
-    GROUP BY t.id
     ORDER BY t.fecha_creacion ASC LIMIT 5
 ");
 $pendientes = $stmt->fetchAll();
